@@ -3,8 +3,10 @@ name: .NET Core
 on:
   push:
     branches: [ master ]
+    paths: [apis/poi/**,.github/workflows/prod-build-dotnetcore.yml]
   pull_request:
     branches: [ master ]
+    paths: [apis/poi/**,.github/workflows/prod-build-dotnetcore.yml]
 
 jobs:
   build:
@@ -18,8 +20,13 @@ jobs:
       with:
         dotnet-version: 3.1.301
     - name: Install dependencies
-      run: dotnet restore
+      run: dotnet restore ./apis/poi/poi.sln
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build ./apis/poi/poi.sln --configuration Release --no-restore
+    - name: Create issue on build failure
+      if: ${{ failure() }}
+      uses: JasonEtco/create-an-issue@v2.4.0
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      run: dotnet test ./apis/poi/tests/UnitTests/UnitTests.csproj --no-restore --verbosity normal
