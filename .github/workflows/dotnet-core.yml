@@ -3,7 +3,7 @@ name: .NET Core
 on:
   push:
     branches: [ master ]
-    paths: [apis/poi/**,.github/workflows/prod-build-dotnetcore.yml]
+    #paths: [apis/poi/**,.github/workflows/prod-build-dotnetcore.yml]
   pull_request:
     branches: [ master ]
     paths: [apis/poi/**,.github/workflows/prod-build-dotnetcore.yml]
