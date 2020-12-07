@@ -1,13 +1,13 @@
 name: .NET Core
 env:
-  registry:openhackw7f3d039acr.azurecr.io
-  repository:devopsoh/api-poi
-  docker_path:apis/poi/web
-  staging_url:https://openhackw7f3d039poi-staging.azurewebsites.net/api/healthcheck/poi
-  prod_url:https://openhackw7f3d039poi.azurewebsites.net/api/healthcheck/poi
-  webapp_name:openhackw7f3d039poi
-  build_name:POI
-  resource_group:openhackw7f3d039rg  
+  registry: openhackw7f3d039acr.azurecr.io
+  repository: devopsoh/api-poi
+  docker_path: apis/poi/web
+  staging_url: "https://openhackw7f3d039poi-staging.azurewebsites.net/api/healthcheck/poi"
+  prod_url: "https://openhackw7f3d039poi.azurewebsites.net/api/healthcheck/poi"
+  webapp_name: openhackw7f3d039poi
+  build_name: POI
+  resource_group: openhackw7f3d039rg  
 
 on:
   push:
